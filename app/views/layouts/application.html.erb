@@ -45,24 +45,20 @@
     <div class="span3">
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-          <li class="nav-header">YooFoud</li>
-          <li class="active"><a href="#">Entr&eacute;es</a></li>
-          <li><a href="#">Plats</a></li>
-          <li><a href="#">Desserts</a></li>
+          <li class="nav-header">Cat&eacute;gories</li>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, "/categories/"+category.id.to_s %></li>
+          <% end %>
         </ul>
       </div><!--/.well -->
     </div><!--/span-->
 
+    <div class="span9">
+
 <%= yield %>
 
+    </div>
   </div><!--/row-->
-
-  <hr>
-
-  <footer>
-    <p>&copy; Company 2012</p>
-  </footer>
-
 </div><!--/.fluid-container-->
 
 </body>

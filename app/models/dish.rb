@@ -5,5 +5,5 @@ class Dish < ActiveRecord::Base
   has_many :assignments
   has_many :menus, :through => :assignments
 
-  attr_accessible :name, :priceHT, :tva
+  attr_accessible :name, :priceHT, :tva, :description
 end

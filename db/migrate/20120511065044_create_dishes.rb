@@ -4,6 +4,7 @@ class CreateDishes < ActiveRecord::Migration
       t.string :name
       t.decimal :priceHT
       t.decimal :tva
+      t.string :description
       t.belongs_to :category
       t.belongs_to :country
 

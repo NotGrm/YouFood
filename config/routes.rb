@@ -1,4 +1,11 @@
 YouFoodTest::Application.routes.draw do
+
+  get "categories/show"
+  match "categories/:id" => "categories#show"
+
+  get "dishes/show"
+  match "dishes/:id" => "dishes#show"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
