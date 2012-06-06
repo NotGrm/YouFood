@@ -4,7 +4,15 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    [Country, Dish, Category].each(&:delete_all)
+    [Country, Dish, Category, Waiter].each(&:delete_all)
+
+    Waiter.populate 2 do |waiter|
+        waiter.first_name = Faker::Name.first_name
+        waiter.last_name = Faker::Name.last_name
+        waiter.email = Faker::Internet.email
+        
+        waiter.encrypted_password = Digest::SHA512.hexdigest(waiter.first_name)
+    end
 
     Category.populate 6 do |category|
     	category.name = Faker::Lorem.words(1)
