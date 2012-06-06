@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  
+  before_filter :fetch_menu
 
   def require_table_number
     unless identified?
