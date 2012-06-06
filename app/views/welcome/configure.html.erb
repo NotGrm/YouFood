@@ -2,13 +2,13 @@
   <h1>Configuration</h1>
 </div>
 <div class="row-fluid grid-line">
-  <% unless @error.nil? %>
+  <% unless @error.blank? %>
     <div class="alert alert-error">
       <button type="button" class="close" data-dismiss="alert">×</button>
       <%= @error %>
     </div>
   <% end %>
-  <%= form_tag do %>
+  <%= form_tag :action => "set_table_number" do %>
       <%= text_field_tag "table_number", nil, :placeholder => "Entrez le numéro de table..." %>
       <%= submit_tag "Valider" %>
   <% end %>
