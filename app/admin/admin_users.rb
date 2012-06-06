@@ -4,6 +4,10 @@ ActiveAdmin.register AdminUser do
   filter :last_name
   filter :type, :as => :select, :collection => ["Cook", "Waiter"]
 
+  scope :all
+  scope :cook 
+  scope :waiter 
+
   index do
     column :email
     column :username
