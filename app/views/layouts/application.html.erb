@@ -17,7 +17,6 @@
 
 </head>
 <body>
-
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
@@ -26,14 +25,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">YouFood</a>
+      <class class="brand">YouFood</class>
       <div class="btn-group pull-right">
-        <a href="#" class="btn btn-primary">Note</a>
+        <%= link_to "Note", orders_show_path, :class => "btn btn-primary" %>
       </div>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><a href="#">Notice</a></li>
-          <li><a href="#">A propos du restaurant</a></li>
+          <li><%= link_to "Menu", welcome_index_path %></li>
+          <li><%= link_to "A propos du restaurant", welcome_about_path %></li>
         </ul>
       </div>
     </div>
@@ -42,22 +41,9 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span3">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header">Cat&eacute;gories</li>
-          <% @categories.each do |category| %>
-            <li><%= link_to category.name, "/categories/"+category.id.to_s %></li>
-          <% end %>
-        </ul>
-      </div><!--/.well -->
-    </div><!--/span-->
 
-    <div class="span9">
+      <%= yield %>
 
-<%= yield %>
-
-    </div>
   </div><!--/row-->
 </div><!--/.fluid-container-->
 

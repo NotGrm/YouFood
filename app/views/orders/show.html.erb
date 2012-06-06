@@ -1,0 +1,56 @@
+<%= render "shared/menu" %>
+<div class="span9">
+  <div class="page-header">
+    <h1>Note</h1>
+  </div>
+  <div class="row-fluid">
+    <div class="btn-group pull-right">
+      <p>
+        <a href="#" class="btn btn-primary">Passer commande</a>
+      </p>
+    </div>
+    <h3>Total</h3>
+  </div>
+  <div class="row-fluid">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th style="width: 10%;">Quantit&eacute;</th>
+        <th style="width: 10%;">Prix</th>
+        <th style="width: 1%;"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Poisson</td>
+        <td>1</td>
+        <td>30</td>
+        <td>
+          <div class="btn-group pull-center">
+            <button href="#" class="btn btn-danger btn-mini dropdown-toggle" data-toggle="dropdown">Supprimer</button>
+            <ul class="dropdown-menu">
+              <li><a>Confirmer</a></li>
+              <li><a>Annuler</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Viande</td>
+        <td>2</td>
+        <td>10</td>
+        <td>
+          <div class="btn-group pull-center">
+            <button href="#" class="btn btn-danger btn-mini dropdown-toggle" data-toggle="dropdown">Supprimer</button>
+            <ul class="dropdown-menu">
+              <li><a>Confirmer</a></li>
+              <li><a>Annuler</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -9,13 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require twitter/bootstrap
+ *= require welcome
+ *= require bootstrap_and_overrides
 */
-body {
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
-
-.sidebar-nav {
-    padding: 9px 0;
-}
