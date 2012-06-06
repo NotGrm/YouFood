@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  skip_before_filter :require_table_number, :only => [:configure]
+  before_filter :require_table_number, :fetch_menu, :except => [:configure]
   def index
   end
 
