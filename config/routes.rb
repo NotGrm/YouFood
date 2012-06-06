@@ -1,4 +1,21 @@
 YouFoodTest::Application.routes.draw do
+
+  get "orders/show"
+
+  get "welcome/about"
+
+  get "welcome/index"
+
+  get "welcome/configure"
+
+  post "welcome/configure"
+
+  get "categories/show"
+  match "categories/:id" => "categories#show", :as => :category
+
+  get "dishes/show"
+  match "dishes/:id" => "dishes#show", :as => :dish
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -53,6 +70,7 @@ YouFoodTest::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 

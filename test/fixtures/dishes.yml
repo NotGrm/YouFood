@@ -5,11 +5,13 @@ one:
   priceHT: 
   tva: 
   category: 
-  country: 
+  country:
+  description:
 
 two:
   name: MyString
   priceHT: 
   tva: 
   category: 
-  country: 
+  country:
+  description:

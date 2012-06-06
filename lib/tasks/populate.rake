@@ -26,6 +26,7 @@ namespace :db do
     		dish.name = Faker::Lorem.words
     		dish.priceHT = 1..100
     		dish.tva = [7, 19.6]
+        dish.description = Faker::Lorem.words
     		dish.category_id = Category.all.to_a
     	end
     end
