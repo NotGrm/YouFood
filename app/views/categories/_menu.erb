@@ -3,7 +3,7 @@
     <ul class="nav nav-list">
       <li class="nav-header">Cat&eacute;gories</li>
       <% @categories.each do |category| %>
-          <li class="<%= "active" if params[:id].to_i == category.id %>"><%= link_to category.name, category %></li>
+          <li class="<%= "active" if current_page? category_path(category.id) %>"><%= link_to category.name, category %></li>
       <% end %>
     </ul>
   </div><!--/.well -->

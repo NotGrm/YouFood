@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
     else
       cookies[:table_number] = nil
       @error = "La table n'existe pas"
-      render :action => "configure"
+      render :action => "configure", :layout => "no_menu"
     end
   end
 
