@@ -11,4 +11,8 @@ class AdminUser < ActiveRecord::Base
   scope :all
   scope :cook, where(:type => "Cook")  
   scope :waiter, where(:type => "Waiter")  
+
+  def full_name
+    last_name.upcase + " " + first_name
+  end
 end
