@@ -1,0 +1,76 @@
+html{
+    padding: 0px;
+    height : 100%;
+}
+body{
+    height: 100%;
+}
+#generalContainer{
+    padding-right: 0px;
+    height : 100%;
+}
+.dragndrop{
+    height : 100%;
+}
+h1{
+	font-style:italic;
+	text-shadow:0 1px 0 #ccc;
+	font-weight:normal;
+}
+
+a{
+	outline:none
+}
+.rightColumnGeneral{
+    height : 97%;
+}
+#newMenu{
+    height : 50%;
+}
+.newMenu{
+    height: 50%;
+    overflow: auto;
+    width : 96%;
+    min-height: 300px;
+}
+.listDish{
+    height : 600px;
+}
+.category{
+    height: 100%;
+}
+.contentAccordion{
+    max-height: 52%;
+    overflow: auto;
+}
+.list{
+}
+.draged{
+	background-color : #009AC4;
+}
+.itemDraggable{
+	border : 2px solid rgb(68, 150, 234);
+	margin-top : 1px;
+	list-style-type:none;
+    padding: 2px 2px 2px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+.itemDraggable:hover{
+	cursor : move;
+}
+.removeItem{
+	float: right;	
+	width : 20px;
+	color: red;
+}
+.removeItem:hover{
+	cursor: pointer;
+}
+.inheritOverflow{
+    overflow: inherit!important;
+}
+.hiddenOverflow{
+    overflow:  hidden!important;
+}

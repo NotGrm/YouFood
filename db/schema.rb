@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531081050) do
+ActiveRecord::Schema.define(:version => 20120607165003) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,6 +66,14 @@ ActiveRecord::Schema.define(:version => 20120531081050) do
 
   add_index "dishes", ["category_id"], :name => "index_dishes_on_category_id"
   add_index "dishes", ["country_id"], :name => "index_dishes_on_country_id"
+
+  create_table "dishes_menus", :id => false, :force => true do |t|
+    t.integer "dish_id"
+    t.integer "menu_id"
+  end
+
+  add_index "dishes_menus", ["dish_id", "menu_id"], :name => "index_dishes_menus_on_dish_id_and_menu_id"
+  add_index "dishes_menus", ["menu_id", "dish_id"], :name => "index_dishes_menus_on_menu_id_and_dish_id"
 
   create_table "menus", :force => true do |t|
     t.string   "title"
