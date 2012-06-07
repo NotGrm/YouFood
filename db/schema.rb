@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120607110917) do
     t.string   "name"
     t.decimal  "priceHT"
     t.decimal  "tva"
+    t.string   "description"
     t.integer  "category_id"
     t.integer  "country_id"
     t.datetime "created_at",           :null => false
