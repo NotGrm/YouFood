@@ -1,0 +1,54 @@
+<div class="container-fluid" id="generalContainer">
+  <div class="row-fluid dragndrop">
+    <div class="span3 listDish">
+      <fieldset style="height : 100%;">
+        <legend>List dish</legend>
+        <div class="dish_category">
+
+          <% Category.all.each do |category| %>
+              <h3 class="titleCategory">
+                <%= link_to category.name, "#" %>
+              </h3>
+
+              <div class="contentAccordion">
+                <ul class="list">
+                  <% category.dishes.each do |dish| %>
+                      <li id="<%= dish.id %>" class="itemDraggable"><%= dish.name %></li>
+                  <% end %>
+                </ul>
+              </div>
+
+          <% end %>
+        </div>
+      </fieldset>
+
+    </div>
+    <%= semantic_form_for [:admin, @menu] do |f| %>
+        <div class="span9 rightColumnGeneral">
+          <fieldset style="height : 97%;">
+            <legend>
+              New Menu
+            </legend>
+
+            <div id="newMenu" class="well">
+              <fieldset>
+                <legend>
+                  <div class="control-group">
+                    <%= f.input :title, :input_html => {:class=>"input-xlarge", :placeholder => "Name of your menu"}  %>
+                    <%= f.input :begin_date %>
+                  </div>
+                </legend>
+              </fieldset>
+              <ul class="newMenu"></ul>
+            </div>
+          </fieldset>
+          <div class="form-actions">
+
+            <%= hidden_field_tag 'listDishOfMenu' %>
+            <%= f.submit :class => "btn btn-primary btn-large" %>
+
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

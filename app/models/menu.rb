@@ -1,6 +1,5 @@
 class Menu < ActiveRecord::Base
-  has_many :assignments
-  has_many :dishes, :through => :assignments
+  has_and_belongs_to_many :dishes
 
   attr_accessible :begin_date, :dishes, :end_date, :title
 end

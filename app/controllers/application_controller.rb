@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_menu
-    @categories = Category.all
+    @all_categories = Category.all
   end
 
   def init_order
