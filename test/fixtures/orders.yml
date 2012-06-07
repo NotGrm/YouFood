@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  completed_at: 2012-05-28 11:22:20
+  ready_at: 2012-05-28 11:22:20
+  provided_at: 2012-05-28 11:22:20
+  paid_at: 2012-05-28 11:22:20
+  table: 
+
+two:
+  completed_at: 2012-05-28 11:22:20
+  ready_at: 2012-05-28 11:22:20
+  provided_at: 2012-05-28 11:22:20
+  paid_at: 2012-05-28 11:22:20
+  table: 

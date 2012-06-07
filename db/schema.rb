@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120607165003) do
+=======
+ActiveRecord::Schema.define(:version => 20120607110917) do
+>>>>>>> cf01735dd92b3a6f303cd51ce1de9fdcadf3a001
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -60,8 +64,12 @@ ActiveRecord::Schema.define(:version => 20120607165003) do
     t.string   "description"
     t.integer  "category_id"
     t.integer  "country_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "dishes", ["category_id"], :name => "index_dishes_on_category_id"
@@ -82,6 +90,18 @@ ActiveRecord::Schema.define(:version => 20120607165003) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "orders", :force => true do |t|
+    t.datetime "completed_at"
+    t.datetime "ready_at"
+    t.datetime "provided_at"
+    t.datetime "paid_at"
+    t.integer  "table_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "orders", ["table_id"], :name => "index_orders_on_table_id"
 
   create_table "tables", :force => true do |t|
     t.integer  "number"

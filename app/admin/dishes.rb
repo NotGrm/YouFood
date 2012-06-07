@@ -18,4 +18,16 @@ ActiveAdmin.register Dish do
   	column :country
   	default_actions
   end
+
+  form do |f|
+    f.inputs "General" do
+      f.input :name
+      f.input :priceHT
+      f.input :tva, :as => :radio, :collection => [7.00, 19.6]
+      f.input :picture
+      f.input :country
+      f.input :category
+    end
+    f.buttons
+  end
 end

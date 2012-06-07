@@ -4,6 +4,10 @@ class Dish < ActiveRecord::Base
 
   has_and_belongs_to_many :menus
 
+  has_and_belongs_to_many :orders
+
+  has_attached_file :picture
+
   attr_accessible :name, :priceHT, :tva, :description, :category_id, :country_id
 
   def self.get_all_by_id(str)
@@ -14,5 +18,9 @@ class Dish < ActiveRecord::Base
     end
 
     return array
+    end
+
+  def subtotal
+  	priceHT * tva
   end
 end
