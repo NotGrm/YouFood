@@ -8,7 +8,7 @@ YouFoodTest::Application.routes.draw do
 
   get "welcome/configure"
 
-  post "welcome/configure"
+  post "welcome/set_table_number"
 
   get "categories/show"
   match "categories/:id" => "categories#show", :as => :category
