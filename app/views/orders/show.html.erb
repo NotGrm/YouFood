@@ -22,6 +22,9 @@
       </tr>
       </thead>
       <tbody>
+
+      <% @order.each do |line| %>
+
       <tr>
         <td>Poisson</td>
         <td>1</td>
@@ -36,6 +39,9 @@
           </div>
         </td>
       </tr>
+
+      <% end %>
+
       <tr>
         <td>Viande</td>
         <td>2</td>

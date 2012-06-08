@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
   end
 
   def configure
-    session[:order] = Order.new
+    session[:order] = nil
     render :layout => "no_menu"
   end
 
