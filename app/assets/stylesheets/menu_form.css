@@ -74,9 +74,6 @@ a{
 .hiddenOverflow{
     overflow:  hidden!important;
 }
-#titleDateBegin .label{
-    visibility: hidden;
-}
 #titleDateBegin{
     list-style-type:none;
 }
@@ -85,4 +82,8 @@ a{
 }
 .datepicker .datepicker-months .table-condensed thead tr th{
     background: none!important;
+}
+.label{
+    background: none;
+    color : black;
 }

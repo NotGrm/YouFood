@@ -127,12 +127,10 @@ ActiveAdmin.setup do |config|
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
 
-  config.register_stylesheet "flick/jquery-ui-1.8.20.custom.css"
   config.register_stylesheet "menu_form.css"
 
-
   config.register_javascript "script.js"
-  config.register_javascript "bootstrap-datepicker.js"
+  #config.register_javascript "bootstrap-datepicker.js"
   config.register_javascript "jquery.dragndropmenu.js"
 
 

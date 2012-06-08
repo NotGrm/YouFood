@@ -36,17 +36,6 @@
                 var idItemDragging = ui.draggable.attr("id");
                 var text = ui.draggable.text();
                 if (!ui.draggable.hasClass("itemNewMenu")) {
-                    /*
-                    var type;
-                    if(ui.draggable.hasClass("entree")){
-                        type = "en";
-                    }
-                    else if(ui.draggable.hasClass("dish")){
-                        type = "di";
-                    }else if(ui.draggable.hasClass("dessert")){
-                        type = "de";
-                    } */
-
                     $(".newMenu").prepend('<div id="new' + idItemDragging + '" class="itemDraggable itemNewMenu"><span>' + text + '</span><a id="remove' + idItemDragging + '" class="close removeItem" href="#">&times;</a></div>');
                     setTimeout(function() { ui.draggable.hide(); }, 1);
 
@@ -60,21 +49,16 @@
 
         });
 
-        $("#dpmenu").click(function() {
-            $(".datepicker").css("top","444px");
-            $(".datepicker").css("left","440px");
-            $(".datepicker").css("display","block");
-            $(".datepicker-days").css("display","block");
-            $(".datepicker-months").css("display","none");
-            $(".datepicker-years").css("display","none");
-        });
-
-        $("#dpmenu").datepickerbootstrap();
-
-
-
         $(".dish_category").accordion();
 
+
+        $("#menu_begin_date").datepicker({
+            format: "yyyy-mm-dd"
+        });
+
+        $("#menu_end_date").datepicker({
+            format: "yyyy-mm-dd"
+        });
 		
 		// On continue le chainage JQuery
 		return this;
