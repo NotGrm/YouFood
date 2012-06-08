@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :fetch_menu
+  before_filter :fetch_menu, :init_order
 
   def require_table_number
     unless identified?
@@ -16,5 +16,9 @@ class ApplicationController < ActionController::Base
 
   def fetch_menu
     @all_categories = Category.all
+  end
+
+  def init_order
+    session[:order] ||= Order.new
   end
 end
