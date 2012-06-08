@@ -12,5 +12,10 @@ class Order < ActiveRecord::Base
 		total_price += line.total_price
 	end
 
+	return total_price
+  end
+
+  def table_number
+  	table_number = table.number.to_s
   end
 end

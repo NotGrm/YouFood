@@ -42,7 +42,8 @@ namespace :db do
     end
 
     Order.populate 15 do |order|
-        order.completed_at = 2.month.ago..Time.Now
+        order.completed_at = 2.month.ago..Time.now
+        order.table_id = Table.all.to_a
 
         OrderLine.populate 3..6 do |line|
             line.order_id = order.id

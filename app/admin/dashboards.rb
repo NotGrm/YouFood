@@ -7,10 +7,14 @@ ActiveAdmin::Dashboards.build do
   section "Recent Orders" do
     table_for Order.order("completed_at desc").limit(10) do
       column :completed_at do |order|  
-        link_to order.completed_at, admin_order_path(order)  
+        link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
       end  
-      column :table
-      column :total_order_price
+      column :table do |order|
+        order.table_number
+      end
+      column :total_order_price do |order|
+        number_to_currency order.total_order_price
+      end
     end  
     strong { link_to "View All Products", admin_orders_path } 
   end
