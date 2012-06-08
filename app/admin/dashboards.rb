@@ -10,7 +10,7 @@ ActiveAdmin::Dashboards.build do
         link_to order.completed_at, admin_order_path(order)  
       end  
       column :table
-      column :total_price
+      column :total_order_price
     end  
     strong { link_to "View All Products", admin_orders_path } 
   end

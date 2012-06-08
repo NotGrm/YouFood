@@ -1,4 +1,10 @@
 class OrderLine < ActiveRecord::Base
   belongs_to :dish
-  attr_accessible :quantity
+  belongs_to :order
+
+  attr_accessible :quantity, :dish_id, :order_id
+
+  def total_price
+  	total_price = quantity*dish.priceTTC
+  end
 end

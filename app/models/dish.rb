@@ -20,7 +20,7 @@ class Dish < ActiveRecord::Base
     return array
     end
 
-  def subtotal
-  	priceHT * tva
+  def priceTTC
+  	priceTTC = priceHT * tva
   end
 end

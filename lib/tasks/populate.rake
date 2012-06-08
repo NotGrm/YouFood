@@ -4,7 +4,7 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    [Country, Dish, Category, Waiter, Zone, Table].each(&:delete_all)
+    [Country, Dish, Category, Waiter, Zone, Table, Order, OrderLine].each(&:delete_all)
 
 
     Zone.populate 5 do |zone|
@@ -39,6 +39,16 @@ namespace :db do
             
     		dish.category_id = Category.all.to_a
     	end
+    end
+
+    Order.populate 15 do |order|
+        order.completed_at = 2.month.ago..Time.Now
+
+        OrderLine.populate 3..6 do |line|
+            line.order_id = order.id
+            line.quantity = 1..5
+            line.dish_id = Dish.all.to_a
+        end
     end
 
   end
