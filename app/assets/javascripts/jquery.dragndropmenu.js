@@ -60,6 +60,18 @@
 
         });
 
+        $("#dpmenu").click(function() {
+            $(".datepicker").css("top","444px");
+            $(".datepicker").css("left","440px");
+            $(".datepicker").css("display","block");
+            $(".datepicker-days").css("display","block");
+            $(".datepicker-months").css("display","none");
+            $(".datepicker-years").css("display","none");
+        });
+
+        $("#dpmenu").datepickerbootstrap();
+
+
 
         $(".dish_category").accordion();
 
@@ -81,4 +93,6 @@
         var newListId = firstPartOfListId + secondPartOfListId;
         $("#listDishOfMenu").val(newListId);
     });
+
+
 })(jQuery);

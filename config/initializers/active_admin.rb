@@ -132,6 +132,7 @@ ActiveAdmin.setup do |config|
 
 
   config.register_javascript "script.js"
+  config.register_javascript "bootstrap-datepicker.js"
   config.register_javascript "jquery.dragndropmenu.js"
 
 

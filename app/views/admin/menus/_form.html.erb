@@ -33,9 +33,14 @@
             <div id="newMenu" class="well">
               <fieldset>
                 <legend>
-                  <div class="control-group">
+                  <div id="titleDateBegin" class="control-group">
                     <%= f.input :title, :input_html => {:class=>"input-xlarge", :placeholder => "Name of your menu"}  %>
-                    <%= f.input :begin_date %>
+                    <div class="input-append date" id="datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                      <%= f.input :begin_date, :as => :string %>
+                      <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                  <input class="span2" id="dpmenu" size="16" type="text" value="08/06/2012">
+
                   </div>
                 </legend>
               </fieldset>
