@@ -14,7 +14,7 @@
           <% end %>
           <li class="span4">
             <div class="thumbnail">
-              <img src="http://placehold.it/260x180" alt>
+              <%= image_tag @dish.picture.url %>
               <div class="caption">
                 <h5><%= dish.name %></h5>
                 <p><%= truncate dish.description, :length => 20, :separator => ' ' %></p>

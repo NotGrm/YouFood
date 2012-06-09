@@ -17,7 +17,7 @@ class Dish < ActiveRecord::Base
       array << Dish.find(s)
     end
 
-    return array
+    array
   end
 
   def price_ttc
