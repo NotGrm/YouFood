@@ -23,7 +23,7 @@
       </fieldset>
 
     </div>
-    <%= semantic_form_for [:admin, @menu] do |f| %>
+<%= semantic_form_for [:admin, @menu] do |f| %>
         <div class="span9 rightColumnGeneral">
           <fieldset style="height : 97%;">
             <legend>
@@ -33,9 +33,12 @@
             <div id="newMenu" class="well">
               <fieldset>
                 <legend>
-                  <div class="control-group">
+                  <div id="titleDateBegin" class="control-group">
                     <%= f.input :title, :input_html => {:class=>"input-xlarge", :placeholder => "Name of your menu"}  %>
-                    <%= f.input :begin_date %>
+                    <div class="row-fluid">
+                      <div class="span2"><%= f.input :begin_date, :as => :string, :input_html => { :value=> Date.today } %></div>
+                      <div class="span2"><%= f.input :end_date, :as => :string, :input_html => { :value=> Date.today } %></div>
+                    </div>
                   </div>
                 </legend>
               </fieldset>

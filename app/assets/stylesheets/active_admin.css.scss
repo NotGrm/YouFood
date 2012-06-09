@@ -1,7 +1,13 @@
 // Active Admin CSS Styles
+@import "flick/jquery-ui-1.8.20.custom";
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "bootstrap";
+@import "datepicker";
+
+//config.register_stylesheet "flick/jquery-ui-1.8.20.custom.css"
+//config.register_stylesheet "menu_form.css"
+
 
 // To customize the Active Admin interfaces, add your
 // styles here:
