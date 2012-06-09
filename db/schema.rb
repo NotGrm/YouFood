@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20120607154838) do
 
   create_table "dishes", :force => true do |t|
     t.string   "name"
-    t.decimal  "priceHT"
+    t.decimal  "price_ht"
     t.decimal  "tva"
     t.string   "description"
     t.integer  "category_id"

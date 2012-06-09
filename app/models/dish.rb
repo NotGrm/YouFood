@@ -8,7 +8,7 @@ class Dish < ActiveRecord::Base
 
   has_attached_file :picture
 
-  attr_accessible :name, :priceHT, :tva, :description, :category_id, :country_id
+  attr_accessible :name, :price_ht, :tva, :description, :category_id, :country_id
 
   def self.get_all_by_id(str)
     array = Array.new
@@ -20,7 +20,7 @@ class Dish < ActiveRecord::Base
     return array
   end
 
-  def priceTTC
-  	priceHT * tva
+  def price_ttc
+  	price_ht + price_ht * tva / 100
   end
 end

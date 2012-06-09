@@ -19,8 +19,8 @@
                 <h5><%= dish.name %></h5>
                 <p><%= truncate dish.description, :length => 20, :separator => ' ' %></p>
 
-                <h6>Prix HT <%= sprintf "%.2f", dish.priceHT %> &euro;</h6>
-                <h6>Prix TTC <%= sprintf "%.2f", dish.priceHT + dish.priceHT * dish.tva / 100 %> &euro;</h6>
+                <h6>Prix HT <%= number_to_currency(dish.price_ht, :unit => "€", :format => "%n%u") %></h6>
+                <h6>Prix TTC <%= number_to_currency(dish.price_ttc, :unit => "€", :format => "%n%u") %></h6>
                 <p>
                   <%= link_to "Commander", orders_add_dish_path(:dish_id => dish), :class => "btn btn-primary" %>
                   <%= link_to "Détails", dish, :class => "btn" %>

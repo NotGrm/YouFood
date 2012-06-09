@@ -1,7 +1,7 @@
 <%= render "categories/menu" %>
 <div class="span9">
   <div class="page-header">
-    <h1>Note</h1>
+    <h1>Commande</h1>
   </div>
   <div class="row-fluid">
     <div class="btn-group pull-right">
@@ -27,7 +27,7 @@
 
       <tr>
         <td><%= line.dish.name %></td>
-        <td><%= number_to_currency(line.dish.priceHT, :unit => "€", :format => "%n%u") %></td>
+        <td><%= number_to_currency(line.dish.price_ht, :unit => "€", :format => "%n%u") %></td>
         <td><%= line.quantity %></td>
         <td>
           <div class="btn-group pull-center">
