@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(:version => 20120607154838) do
   end
 
   create_table "order_lines", :force => true do |t|
-    t.integer  "quantity"
+    t.integer  "quantity",   :default => 1
     t.integer  "dish_id"
     t.integer  "order_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "order_lines", ["dish_id"], :name => "index_order_lines_on_dish_id"

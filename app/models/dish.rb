@@ -18,9 +18,9 @@ class Dish < ActiveRecord::Base
     end
 
     return array
-    end
+  end
 
   def priceTTC
-  	priceTTC = priceHT * tva
+  	priceHT * tva
   end
 end
