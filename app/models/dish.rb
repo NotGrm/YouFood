@@ -6,7 +6,7 @@ class Dish < ActiveRecord::Base
 
   has_and_belongs_to_many :orders
 
-  has_attached_file :picture
+  has_attached_file :picture, :default_url => "http://placehold.it/260x180"
 
   attr_accessible :name, :price_ht, :tva, :description, :category_id, :country_id
 
