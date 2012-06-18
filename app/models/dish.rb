@@ -10,6 +10,9 @@ class Dish < ActiveRecord::Base
 
   attr_accessible :name, :price_ht, :tva, :description, :category_id, :country_id, :picture
 
+#
+#
+
   def self.get_all_by_id(str)
     array = Array.new
 
