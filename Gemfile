@@ -26,6 +26,11 @@ group :development do
   gem 'populator'
 end
 
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+
 gem 'activeadmin'
 gem "simple_enum"
 gem 'jquery-rails'
