@@ -7,6 +7,10 @@ class Order < ActiveRecord::Base
 
   attr_accessible :completed_at, :paid_at, :provided_at, :ready_at, :table_id
 
+  def table_number
+    table.number
+  end
+
   def total_order_price
 	  total_price = 0
 
@@ -24,6 +28,7 @@ class Order < ActiveRecord::Base
       current_dish.quantity += 1
     else
       current_dish = order_lines.build(:dish_id => dish_id)
+      current_dish.quantity = 1
     end
 
     current_dish

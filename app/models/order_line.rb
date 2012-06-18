@@ -5,6 +5,6 @@ class OrderLine < ActiveRecord::Base
   attr_accessible :quantity, :dish_id, :order_id
 
   def total_price
-  	total_price = quantity*dish.priceTTC
+  	total_price = quantity*dish.price_ttc
   end
 end

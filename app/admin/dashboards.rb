@@ -9,9 +9,7 @@ ActiveAdmin::Dashboards.build do
       column :completed_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
       end  
-      column :status do |order|
-        status_tag order.status
-      end
+      
       column :table do |order|
         order.table_number
       end
