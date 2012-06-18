@@ -34,7 +34,7 @@ namespace :db do
     	Dish.populate 1..5 do |dish|
     		dish.country_id = country.id
     		dish.name = Faker::Lorem.words
-    		dish.priceHT = 1..100
+    		dish.price_ht = 1..100
     		dish.tva = [7, 19.6]
             
     		dish.category_id = Category.all.to_a

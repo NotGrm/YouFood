@@ -6,7 +6,7 @@ class Dish < ActiveRecord::Base
 
   has_and_belongs_to_many :orders
 
-  has_attached_file :picture
+  has_attached_file :picture, :default_url => "http://placehold.it/260x180"
 
   attr_accessible :name, :priceHT, :tva, :description, :category_id, :country_id, :picture
 
@@ -17,10 +17,10 @@ class Dish < ActiveRecord::Base
       array << Dish.find(s)
     end
 
-    return array
-    end
+    array
+  end
 
-  def priceTTC
-  	priceTTC = priceHT * tva
+  def price_ttc
+  	price_ht + price_ht * tva / 100
   end
 end

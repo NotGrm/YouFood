@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class CategoriesController < ClientController
   def show
     @category = Category.find(params[:id])
 

@@ -12,16 +12,16 @@
     <div class="span4">
       <div class="span12">
       <span class="thumbnail">
-        <img src="http://placehold.it/360x268" alt />
+        <%= image_tag @dish.picture.url %>
       </span>
       </div>
     </div>
     <div class="span8">
       <h1><%= @dish.name %></h1>
-      <h6>Prix HT <%= sprintf "%.2f", @dish.priceHT %> &euro;</h6>
-      <h6>Prix TTC <%= sprintf "%.2f", @dish.priceHT + @dish.priceHT * @dish.tva / 100 %> &euro;</h6>
+      <h6>Prix HT <%= number_to_currency(@dish.price_ht, :unit => "€", :format => "%n%u") %></h6>
+      <h6>Prix TTC <%= number_to_currency(@dish.price_ttc, :unit => "€", :format => "%n%u") %></h6>
       <p>
-        <a href="#" class="btn btn-primary">Commander</a>
+        <%= link_to "Commander", orders_add_dish_path(:dish_id => @dish), :class => "btn btn-primary" %>
       </p>
     </div>
   </div>

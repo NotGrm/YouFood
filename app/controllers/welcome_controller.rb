@@ -1,5 +1,6 @@
-class WelcomeController < ApplicationController
-  before_filter :require_table_number, :except => [:configure, :set_table_number]
+class WelcomeController < ClientController
+  skip_before_filter :require_table_number, :only => [:configure, :set_table_number]
+
   def index
   end
 
@@ -7,7 +8,8 @@ class WelcomeController < ApplicationController
   end
 
   def configure
-    session[:order] = nil
+    cookies[:table_number] = nil
+    session[:order_id] = nil
     render :layout => "no_menu"
   end
 
