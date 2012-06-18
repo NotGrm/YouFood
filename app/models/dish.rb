@@ -8,7 +8,7 @@ class Dish < ActiveRecord::Base
 
   has_attached_file :picture, :default_url => "http://placehold.it/260x180"
 
-  attr_accessible :name, :priceHT, :tva, :description, :category_id, :country_id, :picture
+  attr_accessible :name, :price_ht, :tva, :description, :category_id, :country_id, :picture
 
   def self.get_all_by_id(str)
     array = Array.new
