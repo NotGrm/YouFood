@@ -27,6 +27,7 @@ group :development do
 end
 
 gem 'activeadmin'
+gem "simple_enum"
 gem 'jquery-rails'
 gem 'paperclip', "~> 3.0"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607165003) do
+ActiveRecord::Schema.define(:version => 20120609061121) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,14 +71,6 @@ ActiveRecord::Schema.define(:version => 20120607165003) do
   add_index "dishes", ["category_id"], :name => "index_dishes_on_category_id"
   add_index "dishes", ["country_id"], :name => "index_dishes_on_country_id"
 
-  create_table "dishes_menus", :id => false, :force => true do |t|
-    t.integer "dish_id"
-    t.integer "menu_id"
-  end
-
-  add_index "dishes_menus", ["dish_id", "menu_id"], :name => "index_dishes_menus_on_dish_id_and_menu_id"
-  add_index "dishes_menus", ["menu_id", "dish_id"], :name => "index_dishes_menus_on_menu_id_and_dish_id"
-
   create_table "menus", :force => true do |t|
     t.string   "title"
     t.date     "begin_date"
@@ -86,6 +78,16 @@ ActiveRecord::Schema.define(:version => 20120607165003) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "order_lines", :force => true do |t|
+    t.integer  "quantity"
+    t.integer  "dish_id"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "order_lines", ["dish_id"], :name => "index_order_lines_on_dish_id"
 
   create_table "orders", :force => true do |t|
     t.datetime "completed_at"
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20120607165003) do
     t.integer  "table_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "status_cd"
   end
 
   add_index "orders", ["table_id"], :name => "index_orders_on_table_id"

@@ -1,4 +1,6 @@
 class Order < ActiveRecord::Base
+  as_enum :status, [:ordered, :ready, :at_table, :paid]
+
   belongs_to :table
 
   has_many :order_lines

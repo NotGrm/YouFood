@@ -3,3 +3,11 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    enums:
+      order:
+        status:
+          ordered: "Ordered"
+          ready: "Ready"
+          at_table: "On the table"
+          paid: "Paid"

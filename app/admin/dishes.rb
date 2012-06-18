@@ -19,6 +19,19 @@ ActiveAdmin.register Dish do
   	default_actions
   end
 
+  show do
+    panel "Dish Details" do
+      attributes_table_for dish do
+        row :name do
+          dish.name
+        end
+        row :picture do 
+          image_tag dish.picture.url
+        end
+      end
+    end
+  end
+
   form do |f|
     f.inputs "General" do
       f.input :name

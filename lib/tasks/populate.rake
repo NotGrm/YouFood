@@ -44,6 +44,7 @@ namespace :db do
     Order.populate 15 do |order|
         order.completed_at = 2.month.ago..Time.now
         order.table_id = Table.all.to_a
+        order.status_cd = 0..3
 
         OrderLine.populate 3..6 do |line|
             line.order_id = order.id
