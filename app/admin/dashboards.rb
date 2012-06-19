@@ -4,7 +4,7 @@ ActiveAdmin::Dashboards.build do
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
   
-  section "Last Orders " do
+  section "Last Orders",:if => Proc.new { current_admin_user.user_is_administrator? } do
     table_for Order.order("completed_at desc").limit(10) do
       column :created_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
@@ -20,7 +20,41 @@ ActiveAdmin::Dashboards.build do
     strong { link_to "View All Orders", admin_orders_path } 
   end
 
-  section "Categories Statistics" do
+  section "Cook orders",:if => Proc.new { current_admin_user.user_is_cook? } do
+    puts "Hello Cook"
+    table_for Order.order("completed_at desc").limit(10) do
+      column :created_at do |order|  
+        link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
+      end  
+      
+      column :table do |order|
+        order.table_number
+      end
+      column :total_order_price do |order|
+        number_to_currency order.total_order_price
+      end
+    end  
+    strong { link_to "View All Orders", admin_orders_path } 
+  end
+
+  section "Waiter orders", :if => Proc.new { current_admin_user.user_is_waiter? } do
+    puts "Hello Waiter"
+    table_for Order.order("completed_at desc").limit(10) do
+      column :created_at do |order|  
+        link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
+      end  
+      
+      column :table do |order|
+        order.table_number
+      end
+      column :total_order_price do |order|
+        number_to_currency order.total_order_price
+      end
+    end  
+    strong { link_to "View All Orders", admin_orders_path } 
+  end
+
+  section "Categories Statistics",:if => Proc.new { current_admin_user.user_is_administrator? } do
 
     categories_count = Order.categories_count
     div do
@@ -30,11 +64,11 @@ ActiveAdmin::Dashboards.build do
     end
   end
 
-  section "Restaurants Statistics" do
+  section "Restaurants Statistics",:if => Proc.new { current_admin_user.user_is_administrator? } do
 
     restaurants_sum = Order.restaurants_sum
     div do
-      image_tag Gchart.bar( :theme => :keynote, 
+      image_tag Gchart.bar( :theme => :pastel, 
               :labels => restaurants_sum.keys, 
               :data => restaurants_sum.values,
               :bar_width_and_spacing => '25,6')

@@ -16,6 +16,26 @@ class AdminUser < ActiveRecord::Base
   scope :waiter, where(:type => "Waiter")  
 
   def full_name
-    last_name.upcase + " " + first_name
+    full_name = ''
+
+    if last_name.nil? || first_name.nil?
+      full_name = "DOE John"
+    else
+      last_name.upcase + " " + first_name
+    end
+
+    full_name
+  end
+
+  def user_is_cook?
+    bool = (type == "Cook")
+  end
+
+  def user_is_waiter?
+    bool = (type == "Waiter")
+  end
+
+  def user_is_administrator?
+    bool = (type == "Administrator")
   end
 end

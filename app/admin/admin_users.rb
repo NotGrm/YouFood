@@ -20,7 +20,7 @@ ActiveAdmin.register AdminUser do
     f.inputs "General" do
       f.input :first_name
       f.input :last_name
-      f.input :type, :as => :select, :collection => ["Cook","Waiter"]
+      f.input :type, :as => :select, :collection => ["Administrator","Cook","Waiter"]
 
       f.input :email
       f.input :password
