@@ -19,6 +19,21 @@ class Order < ActiveRecord::Base
     counts
   end
 
+  def self.restaurants_sum
+    counts = Hash.new(0)
+
+    Order.all.each do |order|
+      counts[order.restaurant_name] += order.total_order_price
+    end
+
+    counts
+  end
+
+  def restaurant_name
+    restaurant_name = table.get_restaurant.name
+  end
+
+
   def table_number
     table.number
   end

@@ -4,7 +4,7 @@ ActiveAdmin::Dashboards.build do
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
   
-  section "Orders for Cooks" do
+  section "Last Orders " do
     table_for Order.order("completed_at desc").limit(10) do
       column :created_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
@@ -26,7 +26,17 @@ ActiveAdmin::Dashboards.build do
     div do
       image_tag Gchart.pie( :theme => :keynote, 
               :labels => categories_count.keys, 
-              :data => categories_count.values,
+              :data => categories_count.values)
+    end
+  end
+
+  section "Restaurants Statistics" do
+
+    restaurants_sum = Order.restaurants_sum
+    div do
+      image_tag Gchart.bar( :theme => :keynote, 
+              :labels => restaurants_sum.keys, 
+              :data => restaurants_sum.values,
               :bar_width_and_spacing => '25,6')
     end
   end
