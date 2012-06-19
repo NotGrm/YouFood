@@ -22,13 +22,13 @@ ActiveAdmin::Dashboards.build do
 
   section "Categories Statistics" do
 
-    @categories_count = Order.categories_count
+    categories_count = Order.categories_count
     div do
-    image_tag Gchart.pie( :theme => :keynote, 
-            :labels => @categories_count.keys, 
-            :data => @categories_count.values,
-            :bar_width_and_spacing => '25,6')
-  end
+      image_tag Gchart.pie( :theme => :keynote, 
+              :labels => categories_count.keys, 
+              :data => categories_count.values,
+              :bar_width_and_spacing => '25,6')
+    end
   end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618194302) do
+ActiveRecord::Schema.define(:version => 20120619213412) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -28,8 +28,31 @@ ActiveRecord::Schema.define(:version => 20120618194302) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
-# Could not dump table "admin_users" because of following StandardError
-#   Unknown type 'belongs_to' for column 'zone'
+  create_table "admin_users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "zone_id"
+    t.string   "type"
+    t.integer  "restaurant_id"
+  end
+
+  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
+  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+  add_index "admin_users", ["restaurant_id"], :name => "index_admin_users_on_restaurant_id"
+  add_index "admin_users", ["zone_id"], :name => "index_admin_users_on_zone_id"
 
   create_table "assignements", :force => true do |t|
     t.integer  "menu_id"
@@ -80,11 +103,11 @@ ActiveRecord::Schema.define(:version => 20120618194302) do
   end
 
   create_table "order_lines", :force => true do |t|
-    t.integer  "quantity"
+    t.integer  "quantity",   :default => 1
     t.integer  "dish_id"
     t.integer  "order_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "order_lines", ["dish_id"], :name => "index_order_lines_on_dish_id"
@@ -102,6 +125,16 @@ ActiveRecord::Schema.define(:version => 20120618194302) do
 
   add_index "orders", ["table_id"], :name => "index_orders_on_table_id"
 
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "zip_code"
+    t.string   "city"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tables", :force => true do |t|
     t.integer  "number"
     t.integer  "zone_id"
@@ -118,9 +151,14 @@ ActiveRecord::Schema.define(:version => 20120618194302) do
   end
 
   create_table "zones", :force => true do |t|
-    t.integer  "number"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.integer  "restaurant_id"
+    t.integer  "waiter_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
+
+  add_index "zones", ["restaurant_id"], :name => "index_zones_on_restaurant_id"
+  add_index "zones", ["waiter_id"], :name => "index_zones_on_waiter_id"
 
 end

@@ -4,23 +4,47 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    [Country, Dish, Category, Waiter, Zone, Table, Order, OrderLine].each(&:delete_all)
+    [Country, Dish, Category, Cook, Waiter, Zone, Table, Order, OrderLine, Restaurant].each(&:delete_all)
 
 
-    Zone.populate 5 do |zone|
-        zone.number = zone.id
+    Restaurant.populate 10 do |restaurant|
+        restaurant.name = Faker::Lorem.words(1)
+        restaurant.address_1 = Faker::Address.street_address
+        restaurant.zip_code = Faker::Address.zip_code
+        restaurant.city = Faker::Address.city
 
         Waiter.populate 1..3 do |waiter|
+            waiter.restaurant_id = restaurant.id
+
             waiter.first_name = Faker::Name.first_name
             waiter.last_name = Faker::Name.last_name
             waiter.email = Faker::Internet.email
 
             waiter.encrypted_password = Digest::SHA512.hexdigest(waiter.first_name)
-        end
 
-        Table.populate 4 do |table|
-            table.number = table.id
-            table.zone_id = zone.id
+            Zone.populate 1 do |zone|
+                zone.waiter_id = waiter.id
+                zone.restaurant_id = restaurant.id
+                waiter.zone_id = zone.id
+
+                zone.name = zone.id 
+
+                Table.populate 4 do |table|
+                    table.number = table.id
+                    table.zone_id = zone.id
+                end   
+            end
+        end 
+
+        Cook.populate 1..2 do |cook|
+            cook.id += 100
+            cook.restaurant_id = restaurant.id
+
+            cook.first_name = Faker::Name.first_name
+            cook.last_name = Faker::Name.last_name
+            cook.email = Faker::Internet.email
+
+            cook.encrypted_password = Digest::SHA512.hexdigest(cook.first_name)
         end
     end
 

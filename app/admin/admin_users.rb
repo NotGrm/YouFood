@@ -4,12 +4,12 @@ ActiveAdmin.register AdminUser do
   filter :last_name
 
   scope :all
+  scope :administrator
   scope :cook 
   scope :waiter 
 
   index do
     column :email
-    column :username
     column :first_name
     column :last_name
     column :type
@@ -21,6 +21,11 @@ ActiveAdmin.register AdminUser do
       f.input :first_name
       f.input :last_name
       f.input :type, :as => :select, :collection => ["Cook","Waiter"]
+
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+
     end
     f.buttons
   end

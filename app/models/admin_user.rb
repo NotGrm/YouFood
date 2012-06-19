@@ -4,11 +4,14 @@ class AdminUser < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :restaurant
+
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :type, :id
   # attr_accessible :title, :body
 
   scope :all
+  scope :administrator, where(:type => "Administrator")
   scope :cook, where(:type => "Cook")  
   scope :waiter, where(:type => "Waiter")  
 
