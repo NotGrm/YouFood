@@ -12,7 +12,6 @@ ActiveAdmin.register Menu do
 
   end
 
-
   form :partial => "form"
 
   controller do

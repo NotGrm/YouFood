@@ -6,7 +6,7 @@ ActiveAdmin::Dashboards.build do
   
   section "Orders for Cooks" do
     table_for Order.order("completed_at desc").limit(10) do
-      column :completed_at do |order|  
+      column :created_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
       end  
       
@@ -22,11 +22,13 @@ ActiveAdmin::Dashboards.build do
 
   section "Categories Statistics" do
 
-    #@categories_count = Order.categories_count
-
+    @categories_count = Order.categories_count
     div do
-      render 'categories_statistics'#, {:categories_count => @categories_count}
-    end
+    image_tag Gchart.pie( :theme => :keynote, 
+            :labels => @categories_count.keys, 
+            :data => @categories_count.values,
+            :bar_width_and_spacing => '25,6')
+  end
   end
 
 
