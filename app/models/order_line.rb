@@ -4,6 +4,10 @@ class OrderLine < ActiveRecord::Base
 
   attr_accessible :quantity, :dish_id, :order_id
 
+  def dish_category_name
+  	dish_category_name = dish.category.name
+  end
+
   def total_price
   	total_price = quantity*dish.price_ttc
   end

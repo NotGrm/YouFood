@@ -7,6 +7,18 @@ class Order < ActiveRecord::Base
 
   attr_accessible :completed_at, :paid_at, :provided_at, :ready_at, :table_id
 
+  def self.categories_count
+
+    counts = Hash.new(0)
+
+    Order.all.each do |order|
+
+      order.order_lines.each {|line| counts[line.dish_category_name] += 1}
+    end
+
+    counts
+  end
+
   def table_number
     table.number
   end

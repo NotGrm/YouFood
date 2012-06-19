@@ -4,4 +4,8 @@ class Category < ActiveRecord::Base
   has_many :dishes
 
 
+  def dishes_count
+  	dishes.count
+  end
+
 end

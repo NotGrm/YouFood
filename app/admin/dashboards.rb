@@ -4,7 +4,7 @@ ActiveAdmin::Dashboards.build do
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
   
-  section "Recent Orders" do
+  section "Orders for Cooks" do
     table_for Order.order("completed_at desc").limit(10) do
       column :completed_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
@@ -17,8 +17,18 @@ ActiveAdmin::Dashboards.build do
         number_to_currency order.total_order_price
       end
     end  
-    strong { link_to "View All Products", admin_orders_path } 
+    strong { link_to "View All Orders", admin_orders_path } 
   end
+
+  section "Categories Statistics" do
+
+    #@categories_count = Order.categories_count
+
+    div do
+      render 'categories_statistics'#, {:categories_count => @categories_count}
+    end
+  end
+
 
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section

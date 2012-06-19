@@ -34,6 +34,7 @@ end
 
 gem 'activeadmin'
 gem 'bootstrap-sass'
+gem 'googlecharts'
 gem "simple_enum"
 gem 'jquery-rails'
 gem 'paperclip', "~> 3.0"
