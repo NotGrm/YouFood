@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(:version => 20120619213412) do
   add_index "admin_users", ["zone_id"], :name => "index_admin_users_on_zone_id"
 
   create_table "assignements", :force => true do |t|
-    t.integer  "menu_id"
+    t.integer  "dish_menu_id"
     t.integer  "dish_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "assignements", ["dish_id"], :name => "index_assignements_on_dish_id"
-  add_index "assignements", ["menu_id"], :name => "index_assignements_on_menu_id"
+  add_index "assignements", ["dish_menu_id"], :name => "index_assignements_on_dish_menu_id"
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(:version => 20120619213412) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "dish_menus", :force => true do |t|
+    t.string   "title"
+    t.date     "begin_date"
+    t.date     "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -93,14 +101,6 @@ ActiveRecord::Schema.define(:version => 20120619213412) do
 
   add_index "dishes", ["category_id"], :name => "index_dishes_on_category_id"
   add_index "dishes", ["country_id"], :name => "index_dishes_on_country_id"
-
-  create_table "menus", :force => true do |t|
-    t.string   "title"
-    t.date     "begin_date"
-    t.date     "end_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "order_lines", :force => true do |t|
     t.integer  "quantity",   :default => 1

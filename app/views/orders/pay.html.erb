@@ -1,0 +1,9 @@
+<%= form_tag orders_order_path, :class => "well form-horizontal", :method => :get do %>
+	<%= text_field_tag "name", nil, :placeholder => "Nom" %>
+	<%= text_field_tag "number", nil, :placeholder => "Numéro carte" %>
+	<%= text_field_tag "cvv", nil, :placeholder => "Code CVV" %>
+	<%= text_field_tag "expiration date", nil, :placeholder => "Date d'expiration" %>
+
+	<%= submit_tag 'Payer', :class => "btn btn-primary" %>
+
+<% end %>

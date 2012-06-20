@@ -2,7 +2,7 @@ class Dish < ActiveRecord::Base
   belongs_to :category
   belongs_to :country
 
-  has_and_belongs_to_many :menus
+  has_and_belongs_to_many :dish_menus
 
   has_and_belongs_to_many :orders
 

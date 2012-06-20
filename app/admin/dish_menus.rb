@@ -1,5 +1,4 @@
-ActiveAdmin.register Menu do
-
+ActiveAdmin.register DishMenu do
   show do |menu|
     attributes_table do
       row :title
@@ -14,14 +13,14 @@ ActiveAdmin.register Menu do
 
   controller do
     def create
-      @menu = Menu.new(params[:menu])
+      @dish_menu = DishMenu.new(params[:menu])
       dishes_string = params[:listDishOfMenu]
 
-      @menu.dishes = Dish.get_all_by_id(dishes_string)
+      @dish_menu.dishes = Dish.get_all_by_id(dishes_string)
 
       respond_to do |format|
-        if @menu.save
-          format.html { redirect_to admin_menus_path, notice: dishes_string }
+        if @dish_menu.save
+          format.html { redirect_to admin_dish_menus_path, notice: dishes_string }
         end
       end
     end
