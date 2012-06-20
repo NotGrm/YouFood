@@ -5,7 +5,7 @@ ActiveAdmin::Dashboards.build do
   # return the content which you would like to display.
   
   section "Last Orders",:if => Proc.new { current_admin_user.user_is_administrator? } do
-    table_for Order.order("completed_at desc").limit(10) do
+    table_for Order.order("created_at desc").last(10) do
       column :created_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
       end  

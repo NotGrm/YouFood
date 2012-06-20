@@ -9,7 +9,7 @@ ActiveAdmin.register Dish do
   index do
   	column :name
   	column "Price", :price_ht do |dish|
-  		number_to_currency dish.priceHT
+  		number_to_currency dish.price_ht
   	end
   	column :tva do |dish|
   		number_to_percentage dish.tva, :precision => 2
