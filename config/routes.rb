@@ -2,6 +2,10 @@ YouFoodTest::Application.routes.draw do
 
   get "orders/show"
 
+  get "orders/pay"
+
+  get "orders/order"
+
   get "orders/add_dish"
 
   get "orders/remove_line"

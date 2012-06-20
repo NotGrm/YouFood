@@ -7,13 +7,13 @@ ActiveAdmin::Dashboards.build do
   section "Last Orders",:if => Proc.new { current_admin_user.user_is_administrator? } do
     table_for Order.order("created_at desc").last(10) do
       column :created_at do |order|  
-        link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
+        link_to order.created_at.to_formatted_s(:long), admin_order_path(order)  
       end  
       
       column :table do |order|
         order.table_number
       end
-      column :total_order_price do |order|
+      column :total do |order|
         number_to_currency order.total_order_price
       end
     end  
