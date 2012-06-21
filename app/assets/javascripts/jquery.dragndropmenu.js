@@ -50,15 +50,6 @@
         });
 
         $(".dish_category").accordion();
-
-
-        $("#menu_begin_date").datepicker({
-            format: "yyyy-mm-dd"
-        });
-
-        $("#menu_end_date").datepicker({
-            format: "yyyy-mm-dd"
-        });
 		
 		// On continue le chainage JQuery
 		return this;

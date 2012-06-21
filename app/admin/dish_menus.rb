@@ -13,7 +13,7 @@ ActiveAdmin.register DishMenu do
 
   controller do
     def create
-      @dish_menu = DishMenu.new(params[:menu])
+      @dish_menu = DishMenu.new(params[:dish_menu])
       dishes_string = params[:listDishOfMenu]
 
       @dish_menu.dishes = Dish.get_all_by_id(dishes_string)
