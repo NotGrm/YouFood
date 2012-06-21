@@ -22,7 +22,7 @@ ActiveAdmin::Dashboards.build do
 
   section "Cook orders",:if => Proc.new { current_admin_user.user_is_cook? } do
     puts "Hello Cook"
-    table_for Order.order("completed_at desc").limit(10) do
+    table_for Order.cook_orders do
       column :created_at do |order|  
         link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
       end  
@@ -71,7 +71,7 @@ ActiveAdmin::Dashboards.build do
       image_tag Gchart.bar( :theme => :pastel, 
               :labels => restaurants_sum.keys, 
               :data => restaurants_sum.values,
-              :bar_width_and_spacing => '25,6')
+              :bar_width_and_spacing => '25,25')
     end
   end
 
