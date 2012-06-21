@@ -6,9 +6,12 @@ namespace :db do
     
     [Country, Dish, Category, Cook, Waiter, Zone, Table, Order, OrderLine, Restaurant].each(&:delete_all)
 
+    restaurants = ["Caen", "Paris", "Marseille"]
+        i = 0
+    Restaurant.populate 3 do |restaurant|
 
-    Restaurant.populate 1 do |restaurant|
-        restaurant.name = "YouFood_Caen"
+        restaurant.name = restaurants[i]
+        i += 1
         restaurant.address_1 = Faker::Address.street_address
         restaurant.zip_code = Faker::Address.zip_code
         restaurant.city = Faker::Address.city
