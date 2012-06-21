@@ -1,5 +1,7 @@
 ActiveAdmin.register AdminUser do
   
+  menu :if => Proc.new { current_admin_user.user_is_administrator? }
+  
   filter :first_name
   filter :last_name
 
