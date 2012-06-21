@@ -12,7 +12,7 @@
     <div class="span4">
       <div class="span12">
       <span class="thumbnail">
-        <%= image_tag @dish.picture.url %>
+        <%= image_tag @dish.get_safe_picture_url %>
       </span>
       </div>
     </div>

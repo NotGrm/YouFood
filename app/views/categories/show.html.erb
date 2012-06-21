@@ -14,7 +14,7 @@
           <% end %>
           <li class="span4">
             <div class="thumbnail">
-              <%= image_tag dish.picture.url %>
+              <%= image_tag dish.get_safe_picture_url %>
               <div class="caption">
                 <h5><%= dish.name %></h5>
                 <p><%= truncate dish.description, :length => 20, :separator => ' ' %></p>
