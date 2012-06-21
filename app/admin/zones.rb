@@ -1,4 +1,5 @@
 ActiveAdmin.register Zone do
+  menu :if => Proc.new { current_admin_user.user_is_administrator? }
   
 	form do |f|
 		f.inputs "General" do

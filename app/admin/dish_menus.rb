@@ -1,4 +1,6 @@
 ActiveAdmin.register DishMenu do
+  menu :if => Proc.new { current_admin_user.user_is_administrator? }
+
   show do |menu|
     attributes_table do
       row :title

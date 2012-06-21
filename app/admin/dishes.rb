@@ -1,5 +1,7 @@
 ActiveAdmin.register Dish do
   
+  menu :if => Proc.new { current_admin_user.user_is_administrator? }
+
   filter :category
   filter :country
   filter :name

@@ -4,8 +4,12 @@ ActiveAdmin::Dashboards.build do
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
   
+  
+
   section "Last Orders",:if => Proc.new { current_admin_user.user_is_administrator? } do
-    table_for Order.order("created_at desc").last(10) do
+    @orders = Order.order("created_at desc").last(10)
+
+    table_for @orders do
       column :created_at do |order|  
         link_to order.created_at.to_formatted_s(:long), admin_order_path(order)  
       end  
@@ -22,9 +26,11 @@ ActiveAdmin::Dashboards.build do
 
   section "Cook orders",:if => Proc.new { current_admin_user.user_is_cook? } do
     puts "Hello Cook"
-    table_for Order.cook_orders do
+    @orders = Order.order("created_at desc").last(10)
+
+    table_for @orders do
       column :created_at do |order|  
-        link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
+        link_to order.created_at.to_formatted_s(:long), admin_order_path(order)  
       end  
       
       column :table do |order|
@@ -39,9 +45,11 @@ ActiveAdmin::Dashboards.build do
 
   section "Waiter orders", :if => Proc.new { current_admin_user.user_is_waiter? } do
     puts "Hello Waiter"
-    table_for Order.order("completed_at desc").limit(10) do
+    @orders = Order.order("created_at desc").last(10)
+
+    table_for @orders do
       column :created_at do |order|  
-        link_to order.completed_at.to_formatted_s(:long), admin_order_path(order)  
+        link_to order.created_at.to_formatted_s(:long), admin_order_path(order)  
       end  
       
       column :table do |order|
